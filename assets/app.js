@@ -10,6 +10,9 @@ import './styles/app.scss';
 
 // start the Stimulus application
 import './bootstrap';
+import '@fortawesome/fontawesome-free';
 import bsCustomFileInput from 'bs-custom-file-input';
+
+console.log('Hello guys ! How are U ?');
 
 bsCustomFileInput.init();
