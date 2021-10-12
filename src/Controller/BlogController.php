@@ -28,7 +28,7 @@ class BlogController extends AbstractController
         $response = new Response($this->twig->render('blog/index.html.twig', [
             'posts' => $postRepository->findAll()
         ]));
-        $response->setSharedMaxAge(3600);
+        //$response->setSharedMaxAge(3600);
         return $response;
     }
 

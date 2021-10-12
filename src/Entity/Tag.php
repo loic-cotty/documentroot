@@ -25,7 +25,7 @@ class Tag
     private $label;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(name="created_at", type="datetime", options={"default": "CURRENT_TIMESTAMP"})
      */
     private $createdAt;
 

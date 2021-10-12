@@ -12,6 +12,18 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Post
 {
+    const TYPE_POST = 'post';
+    const TYPE_POKE = 'poke';
+    const TYPE_MEMO = 'memo';
+    const TYPE_PRIVATE = 'private';
+
+    const AVAILABLE_TYPE = [
+        'TYPE_POST' => self::TYPE_POST,
+        'TYPE_POKE' => self::TYPE_POKE,
+        'TYPE_MEMO' => self::TYPE_MEMO,
+        'TYPE_PRIVATE' => self::TYPE_PRIVATE,
+    ];
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
@@ -20,9 +32,19 @@ class Post
     private $id;
 
     /**
+     * @ORM\Column(name="type", type="string", length=255)
+     */
+    private $type;
+
+    /**
      * @ORM\Column(type="string", length=255)
      */
     private $title;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $summary;
 
     /**
      * @ORM\Column(type="text")
@@ -35,19 +57,14 @@ class Post
     private $slug;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(name="created_at", type="datetime", options={"default": "CURRENT_TIMESTAMP"})
      */
     private $createdAt;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(name="updated_at", type="datetime", options={"default": "CURRENT_TIMESTAMP"})
      */
     private $updatedAt;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $summary;
 
     /**
      * @ORM\ManyToMany(targetEntity=Tag::class, inversedBy="posts")
@@ -69,6 +86,23 @@ class Post
         return $this->id;
     }
 
+    public function getAvailableType(): array
+    {
+        return self::$avalableType;
+    }
+
+    public function getType(): ?string
+    {
+        return $this->type;
+    }
+
+    public function setType(string $type): self
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
     public function getTitle(): ?string
     {
         return $this->title;
@@ -77,6 +111,18 @@ class Post
     public function setTitle(string $title): self
     {
         $this->title = $title;
+
+        return $this;
+    }
+
+    public function getSummary(): ?string
+    {
+        return $this->summary;
+    }
+
+    public function setSummary(string $summary): self
+    {
+        $this->summary = $summary;
 
         return $this;
     }
@@ -125,18 +171,6 @@ class Post
     public function setUpdatedAt(\DateTime $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
-
-        return $this;
-    }
-
-    public function getSummary(): ?string
-    {
-        return $this->summary;
-    }
-
-    public function setSummary(string $summary): self
-    {
-        $this->summary = $summary;
 
         return $this;
     }

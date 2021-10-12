@@ -30,4 +30,10 @@ class IndexController extends AbstractController
     {
         return new Response($this->twig->render('about.html.twig', []));
     }
+
+    #[Route('/poke', name: 'poke')]
+    public function poke(): Response
+    {
+        return new Response($this->twig->render('poke.html.twig', []));
+    }
 }
