@@ -6,5 +6,5 @@ services:
     environment:
       POSTGRES_USER: document
       POSTGRES_PASSWORD: root
-      POSTGRES_DB: documentroot
+      POSTGRES_DB: docroot
     ports: [5432]
