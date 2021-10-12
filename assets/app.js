@@ -12,7 +12,12 @@ import './styles/app.scss';
 import './bootstrap';
 import '@fortawesome/fontawesome-free';
 import bsCustomFileInput from 'bs-custom-file-input';
+import hljs from 'highlight.js';
+
+hljs.highlightAll();
 
 console.log('Hello guys ! How are U ?');
 
 bsCustomFileInput.init();
+
+
