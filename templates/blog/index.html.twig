@@ -9,24 +9,24 @@
                 Derniers articles
             </h2>
             {% for post in posts %}
-                    <div class="card border shadow lift">
-                        <div class="card-body">
-                            <div class="card-title">
-                                <h4 class="font-weight-light">
-                                    {{ post.title }}
-                                </h4>
-                            </div>
-                            <div class="card-body">
-                                <p>
-                                    {{ post.summary }}
-                                </p>
-                                <a class="btn btn-sm btn-info" href="{{ path('blog_show', { slug: post.slug }) }}">
-                                    Voir
-                                </a>
-                            </div>
-
+                <div class="card border shadow lift mb-3">
+                    <div class="card-body">
+                        <div class="card-title h4 font-weight-light text-dark">
+                            <a class="card-link text-dark" href="{ path('blog_show', { slug: post.slug }) }}">
+                                {{ post.title }}
+                            </a>
+                        </div>
+                        <p class="card-text">
+                            <img src="" title="" alt="default-img" />
+                            {{ post.summary }}
+                        </p>
+                        <div class="d-flex justify-content-end">
+                            <a class="btn btn-info px-4" href="{{ path('blog_show', { slug: post.slug }) }}">
+                                Voir
+                            </a>
                         </div>
                     </div>
+                </div>
             {% endfor %}
         </div>
         <div class="col-3">
