@@ -26,7 +26,9 @@ class BlogController extends AbstractController
     public function index(PostRepository $postRepository): Response
     {
         $response = new Response($this->twig->render('blog/index.html.twig', [
-            'posts' => $postRepository->findAll()
+            'posts' => $postRepository->findBy([
+                'type' => 'post'
+            ])
         ]));
         //$response->setSharedMaxAge(3600);
         return $response;
