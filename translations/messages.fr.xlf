@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" target-language="fr" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="blog_title">
+                <source>blog_title</source>
+                <target>DocumentRoot Blog</target>
+            </trans-unit>
+            <trans-unit id="last_post">
+                <source>last_post</source>
+                <target>Derniers Posts</target>
+            </trans-unit>
+
+
+            <trans-unit id="label.title">
+                <source>label.title</source>
+                <target>Titre</target>
+            </trans-unit>
+            <trans-unit id="label.type">
+                <source>label.type</source>
+                <target>Type</target>
+            </trans-unit>
+            <trans-unit id="label.content">
+                <source>label.content</source>
+                <target>Contenu</target>
+            </trans-unit>
+            <trans-unit id="label.summary">
+                <source>label.summary</source>
+                <target>Résumé</target>
+            </trans-unit>
+            <trans-unit id="label.created_at">
+                <source>label.created_at</source>
+                <target>Date de création</target>
+            </trans-unit>
+            <trans-unit id="label.updated_at">
+                <source>label.updated_at</source>
+                <target>Date de mise à jour</target>
+            </trans-unit>
+            <trans-unit id="label.slug">
+                <source>label.slug</source>
+                <target>Slug</target>
+            </trans-unit>
+            <trans-unit id="label.tags">
+                <source>label.tags</source>
+                <target>Tags</target>
+            </trans-unit>
+            <trans-unit id="label.create_post">
+                <source>label.create_post</source>
+                <target>Enregistrer</target>
+            </trans-unit>
+            <trans-unit id="label.edit_post">
+                <source>label.edit_post</source>
+                <target>Modifier l'article</target>
+            </trans-unit>
+
+            <trans-unit id="action.back_to_list">
+                <source>action.back_to_list</source>
+                <target>Retour à la liste</target>
+            </trans-unit>
+
+            <trans-unit id="post.updated_successfully">
+                <source>post.updated_successfully</source>
+                <target>Article mis à jour avec succès !</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

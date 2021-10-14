@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\PostRepository;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\PersistentCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -34,37 +35,37 @@ class Post
     /**
      * @ORM\Column(name="type", type="string", length=255)
      */
-    private $type;
+    private ?string $type;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $title;
+    private ?string $title;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $summary;
+    private ?string $summary;
 
     /**
      * @ORM\Column(type="text")
      */
-    private $content;
+    private ?string $content;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $slug;
+    private ?string $slug;
 
     /**
      * @ORM\Column(name="created_at", type="datetime", options={"default": "CURRENT_TIMESTAMP"})
      */
-    private $createdAt;
+    private ?\DateTime $createdAt;
 
     /**
      * @ORM\Column(name="updated_at", type="datetime", options={"default": "CURRENT_TIMESTAMP"})
      */
-    private $updatedAt;
+    private ?\DateTime $updatedAt;
 
     /**
      * @ORM\ManyToMany(targetEntity=Tag::class, inversedBy="posts")
@@ -88,7 +89,7 @@ class Post
 
     public function getAvailableType(): array
     {
-        return self::$avalableType;
+        return self::AVAILABLE_TYPE;
     }
 
     public function getType(): ?string

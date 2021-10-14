@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block content_title 'Edit Post' %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="col-12">
+
+            <div class="d-flex flex-row-reverse">
+                <a href="{{ path('admin') }}" class="btn btn-link">
+                    <i class="fa fa-list-alt" aria-hidden="true"></i> {{ 'action.back_to_list'|trans }}
+                </a>
+            </div>
+            <h2 class="h2 pb-2">
+                <i class="fa fa-pen" aria-hidden="true"></i> {{ 'label.edit_post'|trans }} n°{{ post.id }}
+            </h2>
+
+
+        </div>
+    </div>
+    {% if app.request.hasPreviousSession %}
+        <div class="row">
+            <div class="col-md-12">
+                <div class="messages">
+                    {% for type, messages in app.flashes %}
+                        {% for message in messages %}
+                            <div class="alert alert-dismissible alert-{{ type }}" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="{{ 'action.close'|trans }}">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+
+                                {{ message|trans }}
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    {%  endif %}
+    {{ form_start(form, {attr: attr|default({})}) }}
+    <div class="row">
+        <div class="col-md-9">
+
+
+            {{ form_row(form.title) }}
+            {{ form_row(form.summary) }}
+            {{ form_row(form.content) }}
+
+
+
+
+        </div>
+        <div class="col-md-3">
+            {{ form_row(form.type) }}
+            {{ form_row(form.slug) }}
+            {{ form_row(form.createdAt) }}
+            {{ form_row(form.updatedAt) }}
+            {{ form_row(form.tags) }}
+            <button type="submit" class="btn btn-primary">
+                <i class="fa fa-save" aria-hidden="true"></i> {{ 'label.create_post'|trans }}
+            </button>
+        </div>
+    </div>
+    {{ form_end(form) }}
+{% endblock %}
