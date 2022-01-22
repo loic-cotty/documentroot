@@ -4,41 +4,42 @@ namespace App\Controller;
 
 use App\Entity\Post;
 use App\Repository\PostRepository;
-use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Twig\Environment;
 
+/**
+ * BlogController
+ */
 class BlogController extends AbstractController
 {
-    private Environment $twig;
-    private EntityManagerInterface $entityManager;
-
-    public function __construct(Environment $twig, EntityManagerInterface $entityManager)
-    {
-        $this->twig = $twig;
-        $this->entityManager = $entityManager;
-    }
-
-    #[Route('/blog', name: 'blog')]
+    /**
+     * @param PostRepository $postRepository
+     * @return Response
+     * @Route("/blog", name="blog")
+     */
     public function index(PostRepository $postRepository): Response
     {
-        $response = new Response($this->twig->render('blog/index.html.twig', [
+        return $this->render('blog/index.html.twig', [
             'posts' => $postRepository->findBy([
                 'type' => 'post'
             ])
-        ]));
-        //$response->setSharedMaxAge(3600);
-        return $response;
+        ]);
     }
 
+    /**
+     * @param Request $request
+     * @param Post $post
+     * @return Response
+     *
+     * @Route("/blog/{slug}", name="blog_show")
+     */
     #[Route('/blog/{slug}', name: 'blog_show')]
-    public function show(Request $request, Post $post)
+    public function show(Request $request, Post $post): Response
     {
-        return new Response($this->twig->render('blog/show.html.twig', [
+        return $this->render('blog/show.html.twig', [
             'post' => $post
-        ]));
+        ]);
     }
 }
