@@ -137,3 +137,9 @@ symfony console make:admin:crud
 ```
 composer require twig/markdown-extra
 ```
+
+API PLATFORM : 
+```
+composer require api
+```
+
