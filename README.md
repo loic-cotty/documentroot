@@ -78,7 +78,7 @@ rappel postgres :
 * \dt : show tables
 * \d <table_name> : show table details
 
-il faut relancer la migration pour remplir la bdd.
+Aujourd'hui, il faut relancer la migration pour remplir la bdd.
 
 Generation et execution de la migration pour la bdd.
 ```
@@ -142,4 +142,14 @@ API PLATFORM :
 ```
 composer require api
 ```
+
+Migration de la bdd sous docker (postgres) en local (mysql)
+maj du .env DATABASE_URL
+suppression des fichiers de migrations existants
+```
+bin/console doctrine:database:create
+symfony console make:migration
+bin/console doctrine:migrations:migrate
+```
+
 
