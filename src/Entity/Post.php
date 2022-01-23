@@ -14,6 +14,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Post
 {
+    use TimestampTrait;
+
     const TYPE_POST = 'post';
     const TYPE_POKE = 'poke';
     const TYPE_MEMO = 'memo';
@@ -57,16 +59,6 @@ class Post
      * @ORM\Column(type="string", length=255)
      */
     private ?string $slug;
-
-    /**
-     * @ORM\Column(name="created_at", type="datetime", options={"default": "CURRENT_TIMESTAMP"})
-     */
-    private ?\DateTime $createdAt;
-
-    /**
-     * @ORM\Column(name="updated_at", type="datetime", options={"default": "CURRENT_TIMESTAMP"})
-     */
-    private ?\DateTime $updatedAt;
 
     /**
      * @ORM\ManyToMany(targetEntity=Tag::class, inversedBy="posts")
@@ -161,18 +153,6 @@ class Post
     public function setCreatedAt(\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    public function getUpdatedAt(): ?\DateTime
-    {
-        return $this->updatedAt;
-    }
-
-    public function setUpdatedAt(\DateTime $updatedAt): self
-    {
-        $this->updatedAt = $updatedAt;
 
         return $this;
     }

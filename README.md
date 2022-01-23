@@ -152,4 +152,14 @@ symfony console make:migration
 bin/console doctrine:migrations:migrate
 ```
 
+Doctrine Extension : 
+```
+composer require stof/doctrine-extensions-bundle
+```
+non utilisé:
+https://github.com/doctrine-extensions/DoctrineExtensions
+composer require gedmo/doctrine-extensions
+
+
+https://blog.digivia.fr/article/un-bon-bundle-pour-vos-fixtures-en-yaml
 
