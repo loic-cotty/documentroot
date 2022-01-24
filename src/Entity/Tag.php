@@ -14,6 +14,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Tag
 {
+    use TimestampTrait;
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
@@ -25,11 +27,6 @@ class Tag
      * @ORM\Column(type="string", length=255)
      */
     private $label;
-
-    /**
-     * @ORM\Column(name="created_at", type="datetime", options={"default": "CURRENT_TIMESTAMP"})
-     */
-    private $createdAt;
 
     /**
      * @ORM\ManyToMany(targetEntity=Post::class, mappedBy="tags")
@@ -59,18 +56,6 @@ class Tag
     public function setLabel(string $label): self
     {
         $this->label = $label;
-
-        return $this;
-    }
-
-    public function getCreatedAt(): ?\DateTimeInterface
-    {
-        return $this->createdAt;
-    }
-
-    public function setCreatedAt(\DateTimeInterface $createdAt): self
-    {
-        $this->createdAt = $createdAt;
 
         return $this;
     }

@@ -15,12 +15,11 @@ class PostCrudController extends AbstractCrudController
         return Post::class;
     }
 
-    /*
     public function configureFields(string $pageName): iterable
     {
 
         return [
-            IdField::new('id'),
+            IdField::new('id')->hideOnForm(),
             TextField::new('type'),
             TextField::new('title'),
             TextEditorField::new('summary'),
@@ -28,5 +27,4 @@ class PostCrudController extends AbstractCrudController
             TextField::new('slug'),
         ];
     }
-    */
 }
