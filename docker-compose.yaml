@@ -2,9 +2,12 @@ version: '3'
 
 services:
   database:
-    image: postgres:13-alpine
+    image: mariadb:10.6.5-focal
     environment:
-      POSTGRES_USER: document
-      POSTGRES_PASSWORD: root
-      POSTGRES_DB: docroot
-    ports: [5432]
+      MARIADB_USER: document
+      MARIADB_PASSWORD: root
+      MARIADB_ALLOW_EMPTY_ROOT_PASSWORD: false
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_RANDOM_ROOT_PASSWORD: no
+      MARIADB_DATABASE: docroot
+    ports: [3306]
