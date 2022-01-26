@@ -19,6 +19,7 @@ class FavoriteCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id')->hideOnForm(),
+            TextField::new('title'),
             TextField::new('url'),
             TextEditorField::new('description')
         ];
