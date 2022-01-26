@@ -2,8 +2,10 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Favorite;
 use App\Entity\Post;
 use App\Entity\Tag;
+use App\Repository\FavoriteRepository;
 use App\Repository\PostRepository;
 use App\Repository\TagRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -31,15 +33,27 @@ class DashboardController extends AbstractDashboardController
     private TagRepository $tagRepository;
 
     /**
+     * @var FavoriteRepository
+     */
+    private FavoriteRepository $favoriteRepository;
+
+    /**
      * @param AdminUrlGenerator $adminUrlGenerator
      * @param PostRepository $postRepository
      * @param TagRepository $tagRepository
+     * @param FavoriteRepository $favoriteRepository
      */
-    public function __construct(AdminUrlGenerator $adminUrlGenerator, PostRepository $postRepository, TagRepository $tagRepository)
+    public function __construct(
+        AdminUrlGenerator $adminUrlGenerator,
+        PostRepository $postRepository,
+        TagRepository $tagRepository,
+        FavoriteRepository $favoriteRepository
+    )
     {
         $this->adminUrlGenerator = $adminUrlGenerator;
         $this->postRepository = $postRepository;
         $this->tagRepository = $tagRepository;
+        $this->favoriteRepository = $favoriteRepository;
     }
 
     /**
@@ -47,11 +61,9 @@ class DashboardController extends AbstractDashboardController
      */
     public function index(): Response
     {
-        //$url = $this->adminUrlGenerator->setController(PostCrudController::class)->generateUrl();
-        //return $this->redirect($url);
-
         return $this->render('admin/welcome.html.twig', [
             'posts' => $this->postRepository->findAll(),
+            'favorites' => $this->favoriteRepository->findAll(),
             'tags' => $this->tagRepository->findAll(),
         ]);
 
@@ -108,5 +120,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linktoDashboard('Dashboard', 'fa fa-pen');
         yield MenuItem::linkToCrud('All Posts', 'fa fa-file-text', Post::class);
         yield MenuItem::linkToCrud('All Tags', 'fas fa-tags', Tag::class);
+        yield MenuItem::linkToCrud('All Favorites', 'fas fa-star', Favorite::class);
     }
 }

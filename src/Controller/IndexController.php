@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\FavoriteRepository;
 use App\Repository\PostRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,9 +19,11 @@ class IndexController extends AbstractController
      * @Route("/", name="index")
      */
     #[Route('/', name: 'index')]
-    public function index(): Response
+    public function index(FavoriteRepository $favoriteRepository): Response
     {
-        return $this->render('index.html.twig');
+        return $this->render('index.html.twig', [
+            'favorites' => $favoriteRepository->findAll()
+        ]);
     }
 
     /**
