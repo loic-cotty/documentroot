@@ -16,19 +16,6 @@ class IndexController extends AbstractController
     /**
      * @return Response
      *
-     * @Route("/", name="index")
-     */
-    #[Route('/', name: 'index')]
-    public function index(FavoriteRepository $favoriteRepository): Response
-    {
-        return $this->render('index.html.twig', [
-            'favorites' => $favoriteRepository->findAll()
-        ]);
-    }
-
-    /**
-     * @return Response
-     *
      * @Route("/about", name="about")
      */
     #[Route('/about', name: 'about')]
