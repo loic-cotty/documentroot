@@ -5,11 +5,38 @@
 {% block body %}
     <div class="container">
         <h1>Tableau de bord</h1>
+        <h2>
+            Eurosport
+        </h2>
         <div class="row">
+
+            {% for eurosport_new in eurosport_news %}
+                <div class="col-12">
+                    <div class="card border shadow lift mb-3">
+                        <div class="card-body">
+                            <div class="card-title h6">
+                                {{ eurosport_new.title }}
+                            </div>
+                            <style>
+                                .card-text img{width: 100% ;}
+                            </style>
+                            <div class="card-text">
+                                {{ eurosport_new.description|raw }}
+                            </div>
+                            <div class="card-text">
+                                <a target="_blank" href="{{ eurosport_new.link }}">{{ eurosport_new.title }}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
             <div class="col-12">
-                <div class="row">
+                <h2>
+                    api news
+                </h2>
+                <div class="">
                     {% for last_new in last_news %}
-                        <div class="col-4">
+                        <div class="">
                             <div class="card border shadow lift mb-3">
                                 <div class="card-header">
                                     <div class="card-title h4 font-weight-light text-dark">

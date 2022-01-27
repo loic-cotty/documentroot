@@ -163,3 +163,9 @@ composer require gedmo/doctrine-extensions
 
 https://blog.digivia.fr/article/un-bon-bundle-pour-vos-fixtures-en-yaml
 
+
+
+rss-atom-bundle
+https://github.com/alexdebril/rss-atom-bundle
+composer config extra.symfony.allow-contrib true
+composer require debril/rss-atom-bundle
