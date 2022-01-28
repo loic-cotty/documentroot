@@ -169,3 +169,5 @@ rss-atom-bundle
 https://github.com/alexdebril/rss-atom-bundle
 composer config extra.symfony.allow-contrib true
 composer require debril/rss-atom-bundle
+
+https://www.francetvinfo.fr/rss/
