@@ -1,0 +1,220 @@
+-- MariaDB dump 10.19  Distrib 10.6.4-MariaDB, for osx10.16 (x86_64)
+--
+-- Host: 0.0.0.0    Database: docroot
+-- ------------------------------------------------------
+-- Server version	10.6.5-MariaDB-1:10.6.5+maria~focal
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `admin`
+--
+
+DROP TABLE IF EXISTS `admin`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(180) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `roles` longtext COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '(DC2Type:json)',
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UNIQ_880E0D76E7927C74` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `admin`
+--
+
+LOCK TABLES `admin` WRITE;
+/*!40000 ALTER TABLE `admin` DISABLE KEYS */;
+INSERT INTO `admin` VALUES (1,'loic.cotty@gmail.com','[\"ROLE_ADMIN\"]','$2y$13$9MsFLpUMUW8LiTvwtO1ZT.7CHGkJy/k5sBMvqn9g72ZHG2oYMYeiO');
+/*!40000 ALTER TABLE `admin` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `doctrine_migration_versions`
+--
+
+DROP TABLE IF EXISTS `doctrine_migration_versions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `doctrine_migration_versions` (
+  `version` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `executed_at` datetime DEFAULT NULL,
+  `execution_time` int(11) DEFAULT NULL,
+  PRIMARY KEY (`version`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `doctrine_migration_versions`
+--
+
+LOCK TABLES `doctrine_migration_versions` WRITE;
+/*!40000 ALTER TABLE `doctrine_migration_versions` DISABLE KEYS */;
+INSERT INTO `doctrine_migration_versions` VALUES ('DoctrineMigrations\\Version20220123183528','2022-01-24 20:15:01',104),('DoctrineMigrations\\Version20220123191121','2022-01-24 20:15:01',8),('DoctrineMigrations\\Version20220124212117','2022-01-24 21:28:34',20),('DoctrineMigrations\\Version20220125184217','2022-01-25 18:42:35',53),('DoctrineMigrations\\Version20220125200206','2022-01-25 20:02:21',44),('DoctrineMigrations\\Version20220126184926','2022-01-26 18:50:50',48),('DoctrineMigrations\\Version20220203222503','2022-02-03 22:25:24',44);
+/*!40000 ALTER TABLE `doctrine_migration_versions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `favorite`
+--
+
+DROP TABLE IF EXISTS `favorite`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `favorite` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `url` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `favorite`
+--
+
+LOCK TABLES `favorite` WRITE;
+/*!40000 ALTER TABLE `favorite` DISABLE KEYS */;
+INSERT INTO `favorite` VALUES (1,'https://www.kaherecode.com/tutorial/developper-une-api-rest-avec-symfony-et-api-platform','<h1>Développer une API REST avec Symfony et api-platform</h1><div><br></div>','2022-01-25 22:24:22','2022-01-26 18:57:50','kaherecode.com/developper-une-api-rest-avec-symfony-et-api-platform');
+/*!40000 ALTER TABLE `favorite` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `image`
+--
+
+DROP TABLE IF EXISTS `image`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `image` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `filename` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `image`
+--
+
+LOCK TABLES `image` WRITE;
+/*!40000 ALTER TABLE `image` DISABLE KEYS */;
+INSERT INTO `image` VALUES (2,'Symfony','159ee10bb21e66651b6470a68a00fd481b991e74.png');
+/*!40000 ALTER TABLE `image` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `post`
+--
+
+DROP TABLE IF EXISTS `post`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `post` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `summary` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `content` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `post`
+--
+
+LOCK TABLES `post` WRITE;
+/*!40000 ALTER TABLE `post` DISABLE KEYS */;
+INSERT INTO `post` VALUES (1,'about','A Propos','<p>Avant de publier des articles 2Kalit&eacute; dans cet excellent blog, il a fallu le concevoir... Listes des languages et technos utilis&eacute;es pour concevoir et d&eacute;velopper ce blog.</p>','<p>J&#39;ai d&eacute;cid&eacute; de concevoir ce blog avec plusieurs id&eacute;es en t&ecirc;te :</p>\r\n\r\n<ol>\r\n	<li>Construire un blog avec une stack technique r&eacute;cente et sympa &agrave; utiliser.</li>\r\n	<li>Stocker et retrouver toutes les informations, de bases, ou plus pouss&eacute;es, des technos abord&eacute;es au cours de mes exp&eacute;riences personnelles et professionnelles.</li>\r\n	<li>Me donner un peu de visibilit&eacute; en tant qu&#39;ind&eacute;pendant (plus tard).</li>\r\n</ol>\r\n\r\n<div><img alt=\"\" src=\"public/159ee10bb21e66651b6470a68a00fd481b991e74.png\" style=\"float:right; width:200px\" /></div>\r\n\r\n<div>&nbsp;</div>\r\n\r\n<div><img alt=\"\" src=\"https://127.0.0.1:8000/uploads/159ee10bb21e66651b6470a68a00fd481b991e74.png\" style=\"float:right; height:120px; width:100px\" />Pour la base de la base, je m&#39;appuie sur PHP 7.4 et <a href=\"https://symfony.com/releases\" target=\"_blank\">Symfony</a>.&nbsp;La version 5.4 est sortie en novembre 2021 (&quot;Latest Long-Term Support Release&quot;).&nbsp;</div>\r\n\r\n<div>Pour la base de donn&eacute;e, j&#39;utilise mariaDb en version 10.6.5 (pour le moment dans un docker).</div>\r\n\r\n<div>&nbsp;</div>\r\n\r\n<div>Pour le back-office, j&#39;ai install&eacute; easyAdmin 3. et d&#39;autres nombreux autres bundle dont je parlerai au fil de l&#39;eau dans mes articles.</div>\r\n\r\n<div>&nbsp;</div>\r\n\r\n<div>J&#39;h&eacute;berge mon code sur github. si &ccedil;a vous int&eacute;resse, &ccedil;a se passe&nbsp;<a href=\"https://github.com/loic-cotty/documentroot\">ici</a>.</div>\r\n\r\n<div>&nbsp;</div>\r\n\r\n<div>J&#39;utilise et je d&eacute;taillerai un grand nombre de bundle symfony, je reviendrai dessus dans diff&eacute;rents articles...</div>\r\n\r\n<div>&nbsp;</div>\r\n\r\n<div>Plus j&#39;avance dans ce post, et plus je r&eacute;alise la tache qui m&#39;attend&nbsp;<img alt=\"crying\" src=\"https://127.0.0.1:8000/bundles/fosckeditor/plugins/smiley/images/cry_smile.png\" style=\"height:23px; width:23px\" title=\"crying\" /></div>\r\n\r\n<div>&nbsp;</div>\r\n\r\n<div>Bonne lecture.</div>\r\n\r\n<div>&nbsp;</div>\r\n\r\n<div><br />\r\n<br />\r\n<br />\r\n<a href=\"https://loicdevphp.blogspot.com/\" target=\"_blank\">https://loicdevphp.blogspot.com/</a></div>\r\n\r\n<div>&nbsp;</div>\r\n\r\n<div><a href=\"https://www.blogger.com/blog/posts/8728390777793960751?pli=1\" target=\"_blank\">https://www.blogger.com/blog/posts/8728390777793960751?pli=1</a><br />\r\n&nbsp;</div>\r\n\r\n<p>&nbsp;</p>','stack-technique','2022-01-24 20:46:52','2022-02-04 22:47:37'),(2,'post','installation de ce blog','<div>note au fil de l&#39;eau sur la construction de ce blog.</div>','<pre>\r\nINSTALLATION:\r\n\r\nsymfony new documentroot --version=next\r\n\r\ncd documentroot/\r\n\r\n//installation du certification SSL\r\nbrew install nss (automatisation certificat pour firefox)\r\nsymfony server:ca:install (certificat)\r\n\r\n//Run webserver\r\nsymfony serve -d # lancement server\r\nsymfony server:stop # Arret server\r\nsymfony server:logs # Stream des logs symfony\r\n\r\nInstallation des bundles in&eacute;vitables:\r\n\r\n* composer require symfony/maker-bundle --dev\r\n    * (symfony composer req maker --dev )\r\n* composer require symfony/profiler-pack --dev\r\n    * (symfony composer req profiler --dev)\r\n* composer require symfony/debug --dev\r\n    * (symfony composer req debug --dev)\r\n* composer require symfony/monolog-bundle -W\r\n    * (symfony composer req logger -W) # -W with-all-dependencies\r\n* composer require sensio/framework-extra-bundle\r\n    * (symfony composer req annotations)\r\n* composer require symfony/orm-pack:^2\r\n    * (symfony composer req &quot;orm:^2&quot; )\r\n* composer require symfony/validator\r\n    * (symfony composer req validator)\r\n* composer require symfony/twig-pack\r\n    * (symfony composer req twig)\r\n* composer require twig/intl-extra:^3\r\n    * (symfony composer req &quot;twig/intl-extra:^3&quot;)\r\n* composer require twig/extra-bundle\r\n    * (symfony composer req &quot;twig/extra-bundle&quot;)\r\n* composer require phpunit/phpunit --dev\r\n    * (symfony composer req phpunit --dev)\r\n* composer require doctrine/doctrine-fixtures-bundle --dev\r\n    * (symfony composer req orm-fixtures --dev)\r\n\r\n<em>## Installation Postgres sql via docker:\r\n\r\n</em>on compl&egrave;te le fichier docker-compose.yaml:\r\n\r\n```\r\nversion: &#39;3&#39;\r\n\r\nservices:\r\n  database:\r\n    image: postgres:13-alpine\r\n    environment:\r\n      POSTGRES_USER: document\r\n      POSTGRES_PASSWORD: root\r\n      POSTGRES_DB: documentroot\r\n    ports: [5432]\r\n```\r\n\r\nPuis on lance le container:\r\n```\r\ndocker-compose up -d\r\n```\r\nPour r&eacute;cup&eacute;rer le port de connection:\r\n```\r\ndocker ps\r\n```\r\nPour se connecter &agrave; Postgres dans le container:\r\n\r\n```\r\ndocker exec -it f71d5165055f psql -d documentroot -U document\r\n```\r\n\r\nrappel postgres :\r\n* \\? : liste des commandes\r\n* \\l : show databases\r\n* \\c documentroot : changer de bdd\r\n* \\dt : show tables\r\n* \\d &lt;table_name&gt; : show table details\r\n\r\nAujourd&#39;hui, il faut relancer la migration pour remplir la bdd.\r\n\r\nGeneration et execution de la migration pour la bdd.\r\n```\r\nsymfony console make:migration\r\nsymfony console doctrine:migrations:migrate\r\n```\r\n\r\nmettre &agrave; jour le port dans le .env:\r\n```\r\nDATABASE_URL=&quot;postgresql://document:root@0.0.0.0:53419/docroot?serverVersion=13&amp;charset=utf8&quot;\r\n```\r\n\r\n\r\n<em>## Initialisation du front :\r\n\r\n</em>Techno :\r\ntwig, webpack encore(equivalent de npm, yarn), vuejs, bootstrap, scss\r\n\r\n\r\n\r\n```\r\ncomposer require symfony/webpack-encore-bundle\r\n* symfony composer req encore\r\n\r\nyarn add node-sass sass-loader --dev\r\nyarn add bootstrap@4 jquery popper.js bs-custom-file-input --dev\r\nyarn add vue --dev\r\n\r\n\r\nencore dev\r\n\r\nsymfony run yarn encore dev\r\nsymfony run yarn encore dev --watch\r\n```\r\n\r\nOn g&eacute;n&egrave;re les 2 premieres entit&eacute;s, contenant la relation ManyToMany:\r\n```\r\nsymfony console make:entity Post\r\nsymfony console make:entity Tag\r\n```\r\n\r\nGeneration et execution de la migration pour la bdd.\r\n```\r\nsymfony console make:migration\r\nsymfony console doctrine:migrations:migrate\r\n```\r\n\r\nInstallation d&#39;une interface admin\r\n```\r\nsymfony composer req &quot;admin:^3&quot;\r\nmkdir src/Controller/Admin/\r\nsymfony console make:admin:dashboard\r\nsymfony console make:admin:crud\r\n```\r\n\r\n```\r\ncomposer require twig/markdown-extra\r\n```\r\n\r\nAPI PLATFORM : \r\n```\r\ncomposer require api\r\n```\r\n\r\nMigration de la bdd sous docker (postgres) en local (mysql)\r\nmaj du .env DATABASE_URL\r\nsuppression des fichiers de migrations existants\r\n```\r\nbin/console doctrine:database:create\r\nsymfony console make:migration\r\nbin/console doctrine:migrations:migrate\r\n```\r\n\r\nDoctrine Extension : \r\n```\r\ncomposer require stof/doctrine-extensions-bundle\r\n```\r\nnon utilis&eacute;:\r\nhttps://github.com/doctrine-extensions/DoctrineExtensions\r\ncomposer require gedmo/doctrine-extensions\r\n\r\n\r\nhttps://blog.digivia.fr/article/un-bon-bundle-pour-vos-fixtures-en-yaml\r\n\r\n</pre>\r\n\r\n<div><br />\r\n<br />\r\n&lt;img src=&quot;&quot; alt=&quot;yop&quot; title=&quot;hello world&quot;&gt;</div>\r\n\r\n<div>&nbsp;</div>\r\n\r\n<div>ckeditor integration with easyadmin :</div>\r\n\r\n<div>&nbsp;</div>\r\n\r\n<div><a href=\"https://rogergerecke.de/symfony-easyadmin-3-mit-ckeditor/\" target=\"_blank\">Int&eacute;grer ckeditor dans easyadmin 3</a></div>','note-blog','2022-01-24 22:17:56','2022-02-04 10:08:22'),(3,'post','Amazon Web Service AWS','<div>Note sur AWS</div>','<pre>DOCS : \r\n\r\nTuto abordant les principaux services AWS, assez bien fait pour démarrer\r\nhttps://openclassrooms.com/fr/courses/4810836-decouvrez-le-cloud-avec-amazon-web-services\r\n\r\n\r\n\r\n\r\nJ\'ai souscrit à un abonnement gratuit à AWS pendant 1an pour tester les services offerts par Amazon WS (serveur, stockage, bdd...).\r\nCette offre inclus une instance t2.micro qui vas etre utilisé comme un serveur de préprod.\r\n\r\n\r\nloic.cotty@gmail.com / 4B9Q9:3eX3Cr@kt\r\n\r\n\r\ncredentials : \r\n\r\nID de clé d\'accès :\r\nAKIAIAJKH3ESYJOUUKIA\r\nClé d\'accès secrète :\r\ndMDZfxD8OAjMUcCJQGgZ1/ngSzzGtL4veSZBL1GA\r\n\r\n\r\nInformations concernant EC2:\r\n\r\nINSTANCE ID : i-0c816809a1af66d31\r\nType d\'instance : t2.micro\r\nIP Publique : 35.180.72.59\r\nZone : eu-west-3c\r\nSystème : LAMP 7.3 (image Bitnami LAMP)\r\n\r\n\r\nurl d\'administration : \r\nhttps://eu-west-3.console.aws.amazon.com/ec2/v2/home?region=eu-west-3#Instances:\r\n\r\nUne Ip publique fixe a été attribuée, a cette instance (menu : Réseau et sécurité -&gt; Adresses IP Elastic )\r\n\r\n\r\nPour se connecter au serveur en ssh, depuis le terminal : \r\nssh -i \"~/.ssh/aws.pem\" ubuntu@ec2-35-180-72-59.eu-west-3.compute.amazonaws.com\r\n\r\n\r\nLe serveur WEB dans /opt/bitnami/apache2/htdocs/ ou dans /home/bitnami/htdocs\r\nla home est ici : /home/bitnami\r\n\r\nIl y a une instance mysql sur le serveur EC2, mais nous utilisons plutot un rds dédié.\r\n\r\nBitnami Mysql\r\nuser : root\r\npassword : EB7S61NSVTRp \r\n\r\n\r\nBitnami account: \r\nloic.cotty@gmail.com / 8xXFvDcLY$TVE5@\r\n\r\n\r\nRDS : \r\naws-databases:\r\nhost : aws-databases.cvbtyj4xfjz3.eu-west-3.rds.amazonaws.com\r\nidentifiant : aws_db\r\npassword : Amaz0n3!\r\n\r\nVisibilité publique, on peux y acceder avec mysqlworkbench, et depuis le serveur ECS.\r\nEnvisager des tests, afin de n\'autoriser que mon IP privée...\r\n\r\nDepuis EC2 :\r\nmysql -h aws-databases.cvbtyj4xfjz3.eu-west-3.rds.amazonaws.com -P 3306 -u aws_db -p\r\n\r\n\r\n\r\nLa connection fonctionne entre EC2 et RDS.\r\n\r\n\r\n\r\n\r\n\r\n\r\n<br></pre><div><br></div><div><br></div>','aws','2022-01-24 22:22:28','2022-01-24 22:24:43'),(4,'post','Yarn','<div>yarn</div>','<div>yarn:<br><br>comble les lacunes de npm... mais a besoin de npm pour fonctionner !<br><br>https://blog.zenika.com/2017/03/13/npm-vs-yarn/<br><br><br>https://symfony.com/doc/current/frontend/encore/simple-example.html<br><br><br>//ajouter une lib<br>yarn add bootstrap-sass jquery sass-loader node-sass webpack-notifier --env<br><br><br>to deploy assets<br>yarn run encore dev<br><br><br><br>https://knpuniversity.com/screencast/webpack-encore/copy-plugin<br>yarn add copy-webpack-plugin --dev<br><br>Encore<br>... lines 5 - 18<br>&nbsp; &nbsp; .addPlugin(new CopyWebpackPlugin([<br>&nbsp; &nbsp; &nbsp; &nbsp; // copies to {output}/images<br>&nbsp; &nbsp; &nbsp; &nbsp; { from: \'./assets/images\', to: \'images\' }<br>&nbsp; &nbsp; ]))<br>;</div>','yarn','2022-01-24 22:25:35','2022-01-24 22:25:35'),(5,'post','Git : Le mémo','<div>Principales commandes git&nbsp;</div>','<div>Pour installer git sur votre environnement de d&eacute;veloppement:</div>\r\n\r\n<div>&nbsp;</div>\r\n\r\n<div>Pour Mac :</div>\r\n\r\n<div>&nbsp;</div>\r\n\r\n<div>https://git-scm.com/download/mac</div>\r\n\r\n<div>&nbsp;</div>\r\n\r\n<div>&nbsp;</div>\r\n\r\n<div>&nbsp;</div>\r\n\r\n<div>&nbsp;</div>\r\n\r\n<div>&nbsp;</div>\r\n\r\n<div>&nbsp;</div>\r\n\r\n<div>https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/<br />\r\n<br />\r\ninitialize project:<br />\r\n<br />\r\ngit init (create or replace if exist) a new .git folder<br />\r\n<br />\r\n<br />\r\npour d&eacute;finir le project sur le repo git:<br />\r\ngit remote add origin [remote repository URL]&nbsp;<br />\r\ngit remote add origin git@github.com:loic-cotty/lefaineant-blog-api.git<br />\r\n<br />\r\n<br />\r\necho &quot;# blog-api&quot; &gt;&gt; README.md<br />\r\ngit init<br />\r\ngit add README.md<br />\r\ngit commit -m &quot;first commit&quot;<br />\r\ngit branch -M main<br />\r\ngit remote add origin git@github.com:loic-cotty/blog-api.git<br />\r\ngit push -u origin main<br />\r\n<br />\r\n<br />\r\ngit remote -v //to remind the repo url<br />\r\n<br />\r\nALIAS:<br />\r\nsee: https://git-scm.com/book/fr/v2/Les-bases-de-Git-Les-alias-Git<br />\r\n$ git config --global alias.co checkout<br />\r\n$ git config --global alias.br branch<br />\r\n$ git config --global alias.ci commit<br />\r\n$ git config --global alias.st status<br />\r\n<br />\r\n<br />\r\nDelete a local branch : git branch -D&nbsp;</div>\r\n\r\n<div>&nbsp;</div>\r\n\r\n<div>&nbsp;</div>\r\n\r\n<div>&nbsp;\r\n<p>&nbsp;</p>\r\n</div>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h4>Pour ne pas avoir &agrave; entrer votre mot de passe &agrave; chaque fois</h4>\r\n\r\n<pre>\r\nssh-keygen -t rsa\r\n</pre>\r\n\r\n<pre>\r\nme@locahost$ scp ~/.ssh/id_rsa.pub me@main.server:\r\nme@locahost$ ssh me@main.server\r\npassword:\r\nme@main.server$ cat id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys\r\nme@main.server$ rm id_rsa.pub\r\nme@main.server$ logout\r\n</pre>\r\n\r\n<p>Pour plus d&#39;informations: <a href=\"http://yannesposito.com/Scratch/fr/blog/2009-11-12-Git-for-n00b/\" target=\"_blank\">http://yannesposito.com/Scratch/fr/blog/2009-11-12-Git-for-n00b/</a></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h4>Pour lister les branches:</h4>\r\n\r\n<pre>\r\nGit branch -a\r\n</pre>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h4>Mettre &agrave; jour en local la liste des branches distantes (adding new ones and deleting removed ones) :</h4>\r\n\r\n<pre>\r\ngit remote update --prune\r\n</pre>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h4>displays info for your remote origin repo:</h4>\r\n\r\n<pre>\r\ngit remote show origin\r\n</pre>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h4>displays branch history :</h4>\r\n\r\n<pre>\r\ngit history\r\n</pre>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h4>displays commit details :</h4>\r\n\r\n<pre>\r\ngit show \r\n</pre>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h4>Creer une nouvelle branche locale :</h4>\r\n\r\n<pre>\r\ngit branch \r\n</pre>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h4>Pousser une nouvelle branche locale sur le seveur distant :</h4>\r\n\r\n<pre>\r\ngit push origin \r\n</pre>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h4>Annuler un commit non propag&eacute; :</h4>\r\n\r\n<pre>\r\ngit reset HEAD^\r\n</pre>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h4>Supprimer une branche distante :</h4>\r\n\r\n<pre>\r\ngit push origin --delete \r\n</pre>\r\n\r\n<h4>Supprimer une branche locale :</h4>\r\n\r\n<pre>\r\ngit branch -D \r\n</pre>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h4>Annuler un commit propag&eacute; :</h4>\r\n\r\n<pre>\r\ngit revert HEAD~N..HEAD\r\n</pre>\r\n\r\n<p>avec N = nombre de commit a annuler.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Il est possible de sp&eacute;cifier un nom&eacute;ro de commit a annul&eacute;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<pre>\r\ngit revert 444b1cff\r\n</pre>\r\n\r\n<p>Pour finir, ne pas oublier: git push!!</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<div>\r\n<p>que s&#39;est il pass&eacute; dans une branche?</p>\r\n\r\n<pre>\r\ngit log -g --date=iso\r\n</pre>\r\n\r\n<div>Git add . Git add -p</div>\r\n\r\n<div>&nbsp;</div>\r\n\r\n<div>Git clone</div>\r\n\r\n<div>&nbsp;</div>\r\n\r\n<div>Git pull --rebase</div>\r\n\r\n<div>Git push origin master</div>\r\n\r\n<div>&nbsp;</div>\r\n\r\n<div>Git stach/pop</div>\r\n&gt;</div>\r\n\r\n<p>deplacer un depot de github vers un serveur local: je lance: git clone --bare https://github.com/Elma/easyvoyage.git loic puis: git push --mirror /home/git/repositories/lcotty.git/</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>','git','2022-01-24 22:28:11','2022-02-04 22:38:16'),(6,'post','Sécurisé un espace admin','<div>Pour sécuriser ce blog, on installer le bundle d\'authentification de symfony&nbsp;</div>','<div><a href=\"https://symfony.com/doc/current/the-fast-track/fr/15-security.html\">https://symfony.com/doc/current/the-fast-track/fr/15-security.html</a><br><br></div><pre>symfony composer req security</pre><div><br>Commande spécifique pour générer une table admin.<br><br></div><pre>symfony console make:user Admin</pre><div><br>On génère le fichier de migration et on l\'exécute pour mettre à jour la bdd<br><br></div><pre>symfony console make:migration\r\nsymfony console doctrine:migrations:migrate -n</pre><div><br><br>Générer un mot de passe:<br><br></div><pre>symfony console security:encode-password</pre><div><br><br></div><pre>symfony console security:hash-password\r\n\r\nSymfony Password Hash Utility\r\n=============================\r\n\r\n\r\n For which user class would you like to hash a password? [App\\Entity\\Admin]:\r\n  [0] App\\Entity\\Admin\r\n  [1] Symfony\\Component\\Security\\Core\\User\\PasswordAuthenticatedUserInterface\r\n &gt;\r\n\r\n Type in your password to be hashed:\r\n &gt;\r\n\r\n --------------- -----------------------------------------------------------------\r\n  Key             Value\r\n --------------- -----------------------------------------------------------------\r\n  Hasher used     Symfony\\Component\\PasswordHasher\\Hasher\\MigratingPasswordHasher\r\n  Password hash   $2y$13$9MsFLpUMUW8LiTvwtO1ZT.7CHGkJy/k5sBMvqn9g72ZHG2oYMYeiO\r\n --------------- -----------------------------------------------------------------\r\n\r\n ! [NOTE] Self-salting hasher used: the hasher generated its own built-in salt.\r\n\r\n\r\n [OK] Password hashing succeeded</pre><div><br><br>Ensuite on execute cette requête d\'insertion:<br><br><br></div><pre>symfony run mariadb -c \"INSERT INTO admin (username, roles, password) \\\r\n  VALUES (\'admin\', \'[\\\"ROLE_ADMIN\\\"]\', \'\\$2y\\$13\\$9MsFLpUMUW8LiTvwtO1ZT.7CHGkJy/k5sBMvqn9g72ZHG2oYMYeiO\')\"</pre><div><br><br></div>','symfony-security','2022-01-25 18:51:54','2022-01-25 20:10:29'),(7,'post','Homebrew','<p>Pour simplifier l&#39;installation de programmes sur un mac, il existe un gestionnaire de paquets populaire nomm&eacute;&nbsp;<a href=\"https://brew.sh/index_fr\" target=\"_blank\">Homebrew</a>.</p>','<h4><img alt=\"\" src=\"/uploads/homebrew-256x256.png\" style=\"float:right; height:128px; width:128px\" />Installer Homebrew</h4>\r\n\r\n<p>Dans votre Terminal, ex&eacute;cuter la commande suivante :</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<pre>\r\n/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;</pre>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h4>Installer un nouveau paquet</h4>\r\n\r\n<p><code>brew install</code></p>\r\n\r\n<p><code>brew list</code></p>\r\n\r\n<p><code>brew doctor</code></p>\r\n\r\n<p><code>brew tap</code></p>\r\n\r\n<p><code>brew upgrade</code></p>\r\n\r\n<p><code>brew install php71 --with-pear</code></p>\r\n\r\n<p><code>brew install php71 --with-pear</code></p>\r\n\r\n<p>brew services start php@7.1</p>\r\n\r\n<p>Depuis la maj de brew:<br />\r\n@see https://medium.com/@romaninsh/install-php-7-2-xdebug-on-macos-high-sierra-with-homebrew-july-2018-d7968fe7e8b8</p>\r\n\r\n<p>//install other php version<br />\r\nbrew unlink php #pour d&eacute;sactiver la version de php en cours<br />\r\nbrew install php@5.6<br />\r\nbrew link php@5.6</p>\r\n\r\n<p>//To restaure latest php version<br />\r\nbrew unlink php@5.6<br />\r\nbrew link php</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h4><img alt=\"enlightened\" src=\"https://127.0.0.1:8000/bundles/fosckeditor/plugins/smiley/images/lightbulb.png\" style=\"height:23px; width:23px\" title=\"enlightened\" />En savoir plus...</h4>\r\n\r\n<ul>\r\n	<li><a href=\"https://fr.wikipedia.org/wiki/Gestionnaire_de_paquets\" target=\"_blank\">Wikip&eacute;dia - Gestionnaire_de_paquets</a></li>\r\n	<li><a href=\"https://github.com/Homebrew/brew\" target=\"_blank\">Github - official repository Homebrew</a></li>\r\n</ul>\r\n\r\n<p>&nbsp;</p>','brew-les-bases','2022-02-04 18:45:34','2022-02-04 23:00:42'),(8,'post','Gestion des bureaux avec Mission control','<p>Comment utiliser les espaces de travail sur Mac Os Big Sur.</p>','<h4>Pour naviguer d&#39;un bureau &agrave; un autre</h4>\r\n\r\n<pre>\r\n<kbd>Ctrl</kbd> + <kbd>&rarr;</kbd> <kbd>&larr;</kbd> <kbd>&darr;</kbd> <kbd>&uarr;</kbd>\r\n</pre>\r\n\r\n<p>Pour Aller plus loin</p>\r\n\r\n<p><a href=\"https://astucesapple.fr/comment-utiliser-mission-control/\">https://astucesapple.fr/comment-utiliser-mission-control/</a></p>\r\n\r\n<p>&nbsp;</p>','gestion-des-bureaux-avec-mission-control','2013-09-19 10:00:00','2022-02-04 22:14:04'),(9,'post','Vim','<h3>&nbsp;</h3>\r\n\r\n<h4>Liste des commande Vim essentielles.</h4>\r\n\r\n<h3>&nbsp;</h3>','<h4>Quelques commande VIM de base:</h4>\r\n\r\n<pre>\r\n:i =&gt; Ins&eacute;rer\r\n</pre>\r\n\r\n<pre>\r\n:w =&gt; write\r\n</pre>\r\n\r\n<pre>\r\n:q =&gt; quit\r\n</pre>\r\n\r\n<pre>\r\n:x =&gt; write &amp; quit\r\n</pre>\r\n\r\n<pre>\r\n:u =&gt; annule la derniere modification\r\n</pre>\r\n\r\n<pre>\r\n/[string] =&gt; Recherche la string dans le texte\r\n</pre>\r\n\r\n<h4>Afficher les num&eacute;ros de ligne dans VIM:</h4>\r\n\r\n<pre>\r\n:set nu\r\n</pre>\r\n\r\n<h4>Faire disparaitre les num&eacute;ros de ligne dans VIM:</h4>\r\n\r\n<pre>\r\n:set nu!\r\n</pre>\r\n\r\n<p>ou</p>\r\n\r\n<pre>\r\n:set nonu</pre>','commande-vim','2013-09-30 23:28:00','2022-02-04 23:28:00'),(10,'post','Postgre','<p>postgre commande de base</p>','<p>&lt;p&gt;<br />\r\n&lt;h4&gt;Pour se connecter a Postgres:&lt;/h4&gt;</p>\r\n\r\n<p>&lt;pre&gt;<br />\r\npsql -U postgres -h [server_name] [database_name]&lt;br /&gt;<br />\r\n&lt;/pre&gt;<br />\r\nAvec:<br />\r\n&lt;ul&gt;<br />\r\n&lt;li&gt;-U: User&lt;/li&gt;<br />\r\n&lt;li&gt;-h: hote&lt;/li&gt;<br />\r\n&lt;/ul&gt;</p>\r\n\r\n<p>liste non exhaustive de bdd:<br />\r\n&lt;ul&gt;<br />\r\n&lt;li&gt;catalogue-fr-readonly.maximiles.loc&lt;/li&gt;<br />\r\n&lt;/ul&gt;<br />\r\n&lt;/p&gt;</p>\r\n\r\n<p><br />\r\n&lt;p&gt;<br />\r\n&lt;h4&gt;Commande de base:&lt;/h4&gt;<br />\r\n&lt;ul&gt;<br />\r\n&lt;li&gt;\\h : help!!&lt;/li&gt;<br />\r\n&lt;li&gt;\\l : liste les bdd&lt;/li&gt;<br />\r\n&lt;li&gt;\\c [database_name] : connect&lt;/li&gt;<br />\r\n&lt;li&gt;\\d : liste les tables &lt;/li&gt;<br />\r\n&lt;li&gt;\\q : quitter psql&lt;/li&gt;<br />\r\n&lt;li&gt;\\i fichier.sql = ex&eacute;cuter des requ&ecirc;tes via un fichier.&lt;/li&gt;<br />\r\n&lt;/ul&gt;<br />\r\n&lt;/p&gt;</p>\r\n\r\n<p>&lt;p&gt;<br />\r\n&lt;h4&gt;pg_dump &amp; pg_restore:&lt;/h4&gt;<br />\r\n&lt;ul&gt;<br />\r\n&lt;li&gt;pg_dump -t suppliers catalogue -U postgres -h catalogue-fr-readonly.maximiles.loc &gt; /home/lcotty/dump_cata_suppliers.sql<br />\r\n&lt;/li&gt;</p>\r\n\r\n<p>&lt;li&gt;pg_restore -v -U postgres -c -d catalogue /home/lcotty/dump_cata_suppliers.sql<br />\r\n&lt;/li&gt;</p>\r\n\r\n<p>&lt;/ul&gt;</p>\r\n\r\n<p><br />\r\n&lt;/p&gt;</p>\r\n\r\n<p>&lt;p&gt;<br />\r\n&lt;h4&gt;Dblink:&lt;/h4&gt;</p>\r\n\r\n<p>&lt;pre&gt;<br />\r\nselect * from dblink(&#39;host=prod-white-readonly dbname=dbavis user=postgres&#39;, &#39;select division_name from avis_division&#39; ) as test (division_name text) order by division_name;<br />\r\n&lt;/pre&gt;</p>\r\n\r\n<p>&lt;/p&gt;</p>\r\n\r\n<p>\\COPY (select * from identite) TO &#39;/home/homes/lcotty/extract_fnp_20140331.csv&#39; WITH DELIMITER &#39;;&#39; CSV HEADER;<br />\r\n\\COPY tmp_extract_fnp TO &#39;/home/homes/lcotty/extract_fnp_20140331.csv&#39; WITH DELIMITER &#39;;&#39; CSV HEADER;</p>\r\n\r\n<p><br />\r\n\\o &#39;/home/homes/lcotty/extract_fnp_20140331.csv&#39;<br />\r\npuis select * from identite;</p>','postgtre','2013-09-25 23:39:00','2022-02-04 23:40:00'),(11,'post','Commande Linux','<p>Commande Linux de base</p>','<p>&lt;p&gt;<br />\r\n&lt;h4&gt;file&lt;/h4&gt;</p>\r\n\r\n<p>Obtenir des info sur un fichier:<br />\r\nfile -i &lt;filename&gt;<br />\r\nfile --mime<br />\r\nfile --mime-type<br />\r\nfile --mime-encoding<br />\r\n&lt;/p&gt;</p>\r\n\r\n<p>Taille d&#39;un dossier:<br />\r\ndu -hs &lt;folder_name&gt;</p>\r\n\r\n<p><br />\r\n&lt;p&gt;<br />\r\n***********<br />\r\nfind /chemin/rep -name &quot;*&quot; -exec grep -Hn &quot;string&quot; {} \\;<br />\r\nAlors en gros on recherche dans le r&eacute;pertoire &quot;/chemin/rep&quot;, en passant en revue tous les fichiers du r&eacute;pertoire et des sous-r&eacute;pertoires (tu peux cibler d&#39;avantage en r&eacute;duisant la recherche &agrave; quelques r&eacute;pertoires ou aux extensions de fichiers), puis pour chaque fichier on recherche la cha&icirc;ne (string) en affichant le chemin (-H) et le num&eacute;ro de ligne (-n) si la cha&icirc;ne est trouv&eacute;e.&nbsp;</p>\r\n\r\n<p>Tu peux aussi essayer comme &ccedil;a :<br />\r\nfind /chemin/rep -name &#39;*&#39; |xargs grep -l &quot;string&quot;&nbsp;</p>\r\n\r\n<p>grep -nri motif filtrefichier&nbsp;</p>\r\n\r\n<p>n -&gt; dans le fichier&nbsp;<br />\r\nr -&gt; recherche r&eacute;cursive (ie dans les sous r&eacute;pertoires)&nbsp;<br />\r\ni -&gt; insensible &agrave; la casse&nbsp;</p>\r\n\r\n<p>Exemple :&nbsp;<br />\r\n$ grep -nri &quot;include&quot; *.cpp<br />\r\n***********</p>\r\n\r\n<p>&lt;/p&gt;</p>\r\n\r\n<p>&lt;p&gt;<br />\r\nls | egrep &#39;.+_UtilJour_+&#39; | wc -l</p>\r\n\r\n<p>liste tout les fichiers contentant le masque _UtilJour_ et renvois moi le nombre total de fichier.</p>\r\n\r\n<p>wc -l :compte le nombre de ligne d&#39;un fichier.<br />\r\nwc -w :compte le nombre de mots d&#39;un fichier.<br />\r\nwc -c :compte le nombre d&#39;octet que contient le fichier.<br />\r\n&lt;/p&gt;</p>\r\n\r\n<p>&lt;p&gt;<br />\r\nvider un fichier sous linux:<br />\r\ncat /dev/null &gt; filename_to_clean<br />\r\n&lt;/p&gt;</p>\r\n\r\n<p>&lt;p&gt;<br />\r\ntransfert de fichier inter serveur:<br />\r\nscp lcotty@vwwwugc-dev.dmz.loc:/home/homes/lcotty/diff.diff /home/lcotty/<br />\r\n&lt;/p&gt;</p>\r\n\r\n<p>&lt;p&gt;<br />\r\nzgrep &#39;INSERT INTO &quot;generator&quot;.&quot;queue&quot;&#39; errors-postgres-2014-04-17.log.gz<br />\r\n&lt;/p&gt;</p>\r\n\r\n<p><br />\r\n&lt;p&gt;<br />\r\n&lt;h4&gt;lftp&lt;/h4&gt;</p>\r\n\r\n<p>Commande de base:<br />\r\n&lt;pre&gt;<br />\r\nlftp -u &lt;login&gt;,&lt;password&gt; &lt;ftp_adress&gt;<br />\r\n&lt;/pre&gt;</p>\r\n\r\n<p>pour executer des commandes quand la connection est &eacute;tablie:<br />\r\n&lt;pre&gt;<br />\r\nlftp -e &quot;ls;quit&quot;<br />\r\n&lt;/pre&gt;</p>\r\n\r\n<p>executer un script:<br />\r\n&lt;pre&gt;<br />\r\nlftp -f &lt;script_file&gt;<br />\r\n&lt;/pre&gt;</p>\r\n\r\n<p><br />\r\n&lt;/p&gt;</p>\r\n\r\n<p>&lt;p&gt;<br />\r\n&lt;h4&gt;sshfs&lt;/h4&gt;</p>\r\n\r\n<p>&lt;pre&gt;<br />\r\nsshfs lcotty@dev.maximiles.com:/home/httpd/htdoc/cartefoot/lcotty -p 2222 /tmp/cartefoot<br />\r\n&lt;/pre&gt;</p>\r\n\r\n<p>&lt;/p&gt;</p>\r\n\r\n<p>&lt;p&gt;<br />\r\n&lt;h4&gt;Utilisation de rsync&lt;/h4&gt;<br />\r\nrsync -av /var/www/site_name &nbsp;root@server_name:/var/www/site_name/<br />\r\n&lt;/p&gt;</p>\r\n\r\n<p>&lt;p&gt;<br />\r\n&lt;h4&gt;Gestion des backup de bdd&lt;/h4&gt;<br />\r\npour r&eacute;cuperer une bdd, aller a la racine du serveur de bdd.&nbsp;<br />\r\n&lt;pre&gt;<br />\r\nssh server_sql_name<br />\r\ncd /db_backup/project_name<br />\r\ncat *.sql.gz &gt;&gt; project_name.sql<br />\r\n&lt;/pre&gt;</p>\r\n\r\n<p><br />\r\n&lt;h4&gt;Utilisation de scp&lt;/h4&gt;<br />\r\n&lt;pre&gt;<br />\r\nlancer Depuis son poste:&lt;br&gt;<br />\r\nscp root@server_name:/db_backup/project_name/project_name.sql .<br />\r\n&lt;/pre&gt;</p>\r\n\r\n<p>&lt;/p&gt;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>','commande-linux','2014-01-30 23:42:00','2022-02-04 22:43:10');
+/*!40000 ALTER TABLE `post` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `post_tag`
+--
+
+DROP TABLE IF EXISTS `post_tag`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `post_tag` (
+  `post_id` int(11) NOT NULL,
+  `tag_id` int(11) NOT NULL,
+  PRIMARY KEY (`post_id`,`tag_id`),
+  KEY `IDX_5ACE3AF04B89032C` (`post_id`),
+  KEY `IDX_5ACE3AF0BAD26311` (`tag_id`),
+  CONSTRAINT `FK_5ACE3AF04B89032C` FOREIGN KEY (`post_id`) REFERENCES `post` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `FK_5ACE3AF0BAD26311` FOREIGN KEY (`tag_id`) REFERENCES `tag` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `post_tag`
+--
+
+LOCK TABLES `post_tag` WRITE;
+/*!40000 ALTER TABLE `post_tag` DISABLE KEYS */;
+INSERT INTO `post_tag` VALUES (1,1),(1,2),(3,3),(5,12),(6,1),(6,10),(8,14);
+/*!40000 ALTER TABLE `post_tag` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tag`
+--
+
+DROP TABLE IF EXISTS `tag`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tag` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `label` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tag`
+--
+
+LOCK TABLES `tag` WRITE;
+/*!40000 ALTER TABLE `tag` DISABLE KEYS */;
+INSERT INTO `tag` VALUES (1,'PHP','2022-01-24 21:28:40','2022-01-24 21:28:40'),(2,'Symfony','2022-01-24 21:28:46','2022-01-24 21:28:46'),(3,'AWS','2022-01-24 22:22:38','2022-01-24 22:22:38'),(4,'composer','2022-01-24 22:22:53','2022-01-24 22:22:53'),(5,'docker','2022-01-24 22:23:02','2022-01-24 22:23:02'),(6,'laravel','2022-01-24 22:23:09','2022-01-24 22:23:09'),(7,'postman','2022-01-24 22:23:22','2022-01-24 22:23:22'),(8,'prestashop','2022-01-24 22:23:34','2022-01-24 22:23:34'),(9,'SQL','2022-01-24 22:23:43','2022-01-24 22:24:25'),(10,'Symfony5','2022-01-24 22:23:50','2022-01-24 22:23:50'),(11,'javascript','2022-01-24 22:24:05','2022-01-24 22:24:05'),(12,'git','2022-01-24 22:28:17','2022-01-24 22:28:17'),(13,'yarn','2022-01-24 22:28:23','2022-01-24 22:28:23'),(14,'Mac OS','2022-02-04 20:35:16','2022-02-04 20:35:16'),(15,'Brew','2022-02-04 20:35:30','2022-02-04 20:35:30');
+/*!40000 ALTER TABLE `tag` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping routines for database 'docroot'
+--
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2022-02-05  0:09:17

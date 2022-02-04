@@ -4,7 +4,7 @@
 
 {% block body %}
     <div class="row">
-        <div class="col-9">
+        <div class="col-8">
             <h2 class="mb-5">
                 {{ 'last_post'|trans }}
             </h2>
@@ -17,8 +17,7 @@
                             </a>
                         </div>
                         <p class="card-text">
-                            <img src="#" title="#" alt="default-img" />
-                            {{ post.summary }}
+                            {{ post.summary|raw }}
                         </p>
                         <div class="d-flex justify-content-end">
                             <a class="btn btn-info px-4" href="{{ path('blog_show', { slug: post.slug }) }}">
@@ -29,7 +28,7 @@
                 </div>
             {% endfor %}
         </div>
-        <div class="col-3">
+        <div class="col-4">
 
             <div class="card border shadow mb-3">
                 <div class="card-header">

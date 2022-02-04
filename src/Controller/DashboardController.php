@@ -28,7 +28,7 @@ class DashboardController extends AbstractController
 
         return $this->render('index.html.twig', [
             'favorites' => $favoriteRepository->findAll(),
-            'last_news' => $lastNews->articles,
+            'last_news' => $lastNews,
             'eurosport_news' => $feed
             //'sources' => $sources
         ]);

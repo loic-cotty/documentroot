@@ -2,6 +2,7 @@
 
 namespace App\ApiClient;
 
+use Exception;
 use jcobhams\NewsApi\NewsApi;
 use jcobhams\NewsApi\NewsApiException;
 
@@ -17,11 +18,6 @@ class GoogleNewsClient
         'sports',
         'technology'
     ];
-
-    /**
-     * @var NewsApi
-     */
-    private NewsApi $api;
 
     /**
      * @var string|null
@@ -63,7 +59,6 @@ class GoogleNewsClient
      */
     public function __construct()
     {
-        $this->api = new NewsApi('5ca9e16a83da4571b3edb1ff48a23f7b');
         $this->country = 'fr';
         $this->language = null;
         $this->q = null;
@@ -79,10 +74,12 @@ class GoogleNewsClient
     public function getLastNews()
     {
         try {
-            return $this->api->getTopHeadlines($this->q, $this->sources, $this->country, $this->category, $this->page_size, $this->page);
-        } catch (NewsApiException $e) {
+            $client = new NewsApi('5ca9e16a83da4571b3edb1ff48a23f7b');
+            return $client->getTopHeadlines($this->q, $this->sources, $this->country, $this->category, $this->page_size, $this->page)->articles;
+        } catch (NewsApiException|Exception $e) {
             var_dump($e->getCode());
-            var_dump($e->getMessage());die;
+            var_dump($e->getMessage());
+            return null;
         }
 
     }
@@ -93,10 +90,12 @@ class GoogleNewsClient
     public function getSources()
     {
         try {
-            return $this->api->getSources($this->category, $this->language, $this->country);
-        } catch (NewsApiException $e) {
+            $client = new NewsApi('5ca9e16a83da4571b3edb1ff48a23f7b');
+            return $client->getSources($this->category, $this->language, $this->country);
+        } catch (NewsApiException|Exception $e) {
             var_dump($e->getCode());
-            var_dump($e->getMessage());die;
+            var_dump($e->getMessage());
+            return null;
         }
     }
 

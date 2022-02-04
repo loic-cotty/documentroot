@@ -22,9 +22,10 @@ class BlogController extends AbstractController
     public function index(PostRepository $postRepository): Response
     {
         return $this->render('blog/index.html.twig', [
-            'posts' => $postRepository->findBy([
-                'type' => 'post'
-            ])
+            'posts' => $postRepository->findBy(
+                ['type' => 'post'],
+                ['createdAt' => 'DESC']
+            )
         ]);
     }
 

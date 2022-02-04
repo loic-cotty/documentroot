@@ -3,9 +3,11 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Favorite;
+use App\Entity\Image;
 use App\Entity\Post;
 use App\Entity\Tag;
 use App\Repository\FavoriteRepository;
+use App\Repository\ImageRepository;
 use App\Repository\PostRepository;
 use App\Repository\TagRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -17,11 +19,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DashboardController extends AbstractDashboardController
 {
-    /**
-     * @var AdminUrlGenerator
-     */
-    private AdminUrlGenerator $adminUrlGenerator;
-
     /**
      * @var PostRepository
      */
@@ -38,22 +35,27 @@ class DashboardController extends AbstractDashboardController
     private FavoriteRepository $favoriteRepository;
 
     /**
-     * @param AdminUrlGenerator $adminUrlGenerator
+     * @var ImageRepository
+     */
+    private ImageRepository $imageRepository;
+
+    /**
      * @param PostRepository $postRepository
      * @param TagRepository $tagRepository
      * @param FavoriteRepository $favoriteRepository
+     * @param ImageRepository $imageRepository
      */
     public function __construct(
-        AdminUrlGenerator $adminUrlGenerator,
         PostRepository $postRepository,
         TagRepository $tagRepository,
-        FavoriteRepository $favoriteRepository
+        FavoriteRepository $favoriteRepository,
+        ImageRepository $imageRepository
     )
     {
-        $this->adminUrlGenerator = $adminUrlGenerator;
         $this->postRepository = $postRepository;
         $this->tagRepository = $tagRepository;
         $this->favoriteRepository = $favoriteRepository;
+        $this->imageRepository = $imageRepository;
     }
 
     /**
@@ -65,6 +67,7 @@ class DashboardController extends AbstractDashboardController
             'posts' => $this->postRepository->findAll(),
             'favorites' => $this->favoriteRepository->findAll(),
             'tags' => $this->tagRepository->findAll(),
+            'images' => $this->imageRepository->findAll(),
         ]);
 
     }
@@ -121,5 +124,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('All Posts', 'fa fa-file-text', Post::class);
         yield MenuItem::linkToCrud('All Tags', 'fas fa-tags', Tag::class);
         yield MenuItem::linkToCrud('All Favorites', 'fas fa-star', Favorite::class);
+        yield MenuItem::linkToCrud('All Images', 'fas fa-image', Image::class);
     }
 }

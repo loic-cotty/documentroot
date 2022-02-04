@@ -2,6 +2,7 @@
 
 namespace App\ApiClient;
 
+use Exception;
 use FeedIo\Factory;
 use FeedIo\FeedIo;
 
@@ -21,12 +22,19 @@ class EurosportRssNews
 
     public function getNews()
     {
-        $feed = $this->eurosportFeed->read(self::EUROSPORT_RSS)->getFeed();
-        foreach ( $feed as $item ) {
-            $item->setDescription(preg_replace_callback('/\\\\u([0-9a-fA-F]{4})/', function ($match) {
-                return mb_convert_encoding(pack('H*', $match[1]), 'UTF-8', 'UCS-2BE');
-            }, $item->getDescription()));
+        try {
+            $feed = $this->eurosportFeed->read(self::EUROSPORT_RSS)->getFeed();
+            foreach ( $feed as $item ) {
+                $item->setDescription(preg_replace_callback('/\\\\u([0-9a-fA-F]{4})/', function ($match) {
+                    return mb_convert_encoding(pack('H*', $match[1]), 'UTF-8', 'UCS-2BE');
+                }, $item->getDescription()));
+            }
+        } catch (Exception $e) {
+            var_dump($e->getCode());
+            var_dump($e->getMessage());
+            return null;
         }
+
         return $feed;
     }
 
