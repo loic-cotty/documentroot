@@ -3,78 +3,15 @@
 {% block title %}Document Root{% endblock %}
 
 {% block body %}
-    <h1>Tableau de bord</h1>
+    <h2>Tableau de bord</h2>
     <div class="row">
-        <div class="col-6">
-            <h2>
-                Dashboard
-            </h2>
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <h3>
-                            Supervision Système
-                        </h3>
-                    </div>
-
-
-                </div>
-            </div>
-
-        </div>
-        <div class="col-6">
-            <div class="card border shadow lift mb-3">
-                <div class="card-header">
-                    Actualité Eurosport
-                </div>
-                <div class="card-body">
-                    <div class="card-text">
-                        <ul class="list-group list-group-flush">
-                            {% for eurosport_new in eurosport_news %}
-                                <li class="list-group-item">
-                                    <a target="_blank" href="{{ eurosport_new.link }}">{{ eurosport_new.title }}</a>
-                                </li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <h2>
-                api news
-            </h2>
-            <div class="">
-                {% for last_new in last_news %}
-                    <div class="">
-                        <div class="card border shadow lift mb-3">
-                            <div class="card-header">
-                                <div class="card-title h4 font-weight-light text-dark">
-                                    <a class="card-link text-dark" href="{{ last_new.url }}">
-                                        {{ last_new.title }}
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <p class="card-text">
-                                    <img class="img-fluid" src="{{ last_new.urlToImage }}" title="{{ last_new.title }}" alt="{{ last_new.title }}" />
-                                    {{ last_new.content }}
-                                </p>
-                                <small>{{ last_new.source.name }} - {{ last_new.author }} - {{ last_new.publishedAt }}</small>
-                                <div class="d-flex justify-content-end">
-                                    <a href="{{ last_new.url }}" target="_blank" class="btn btn-info px-1">
-                                        Consulter en ligne sur {{ last_new.source.name }}
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
         <div class="col-12">
-            <div class="card border mb-3">
-                Categories :
+            <h3>
+                Information Système
+                {{ dump('yop') }}
+                Environnement : {{ app_environment }}
+            </h3>
 
-            </div>
         </div>
     </div>
 {% endblock %}

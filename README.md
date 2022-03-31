@@ -133,6 +133,8 @@ mkdir src/Controller/Admin/
 symfony console make:admin:dashboard
 symfony console make:admin:crud
 ```
+compte admin : loic.cotty@gmail.com/documentroot
+
 
 ```
 composer require twig/markdown-extra
@@ -171,3 +173,15 @@ composer config extra.symfony.allow-contrib true
 composer require debril/rss-atom-bundle
 
 https://www.francetvinfo.fr/rss/
+
+
+
+31/03
+Mise en place d'une stack docker nginx/php/mariadb
+
+
+
+
+
+https://jean-pierre.lambelet.net/astuces/php/commencer-un-nouveau-projet-symfony5-avec-docker-compose-nginx-php-7-4-et-mariadb-692/
+

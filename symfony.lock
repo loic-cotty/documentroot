@@ -19,22 +19,6 @@
     "composer/package-versions-deprecated": {
         "version": "1.11.99.4"
     },
-    "debril/feed-io": {
-        "version": "v4.9.8"
-    },
-    "debril/rss-atom-bundle": {
-        "version": "5.1",
-        "recipe": {
-            "repo": "github.com/symfony/recipes-contrib",
-            "branch": "master",
-            "version": "4.0",
-            "ref": "2c23ed747eda9f4c13f5e7eb55fffa1091fdd505"
-        },
-        "files": [
-            "config/packages/rss_atom.yaml",
-            "config/routes/rss_atom.yaml"
-        ]
-    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {
@@ -145,18 +129,6 @@
     "gedmo/doctrine-extensions": {
         "version": "v3.5.0"
     },
-    "guzzlehttp/guzzle": {
-        "version": "6.5.5"
-    },
-    "guzzlehttp/promises": {
-        "version": "1.5.1"
-    },
-    "guzzlehttp/psr7": {
-        "version": "1.8.3"
-    },
-    "jcobhams/newsapi": {
-        "version": "v1.0"
-    },
     "laminas/laminas-code": {
         "version": "4.4.3"
     },
@@ -246,17 +218,11 @@
     "psr/event-dispatcher": {
         "version": "1.0.0"
     },
-    "psr/http-message": {
-        "version": "1.0.1"
-    },
     "psr/link": {
         "version": "1.0.0"
     },
     "psr/log": {
         "version": "2.0.0"
-    },
-    "ralouphie/getallheaders": {
-        "version": "3.0.3"
     },
     "sebastian/cli-parser": {
         "version": "1.0.1"
