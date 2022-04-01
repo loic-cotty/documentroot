@@ -167,19 +167,13 @@ https://blog.digivia.fr/article/un-bon-bundle-pour-vos-fixtures-en-yaml
 
 
 
-rss-atom-bundle
-https://github.com/alexdebril/rss-atom-bundle
-composer config extra.symfony.allow-contrib true
-composer require debril/rss-atom-bundle
-
-https://www.francetvinfo.fr/rss/
-
-
 
 31/03
-Mise en place d'une stack docker nginx/php/mariadb
+Mise en place d'un environnement docker contenant nginx - php - mariadb
+=> https://github.com/loic-cotty/stack-dev-docker
 
-
+Donc, plus besoin de lancer un "docker-compose up -d", ni de lancer le serveur web via "symfony serve -d".
+Avec ce système les données en bdd sont persistées. donc pas besoin de restaurer un dump à chaque réinstallation. 
 
 
 
